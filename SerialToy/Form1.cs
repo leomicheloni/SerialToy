@@ -45,13 +45,36 @@ namespace SerialToy
         }
         private void btnOpenPort_Click(object sender, EventArgs e)
         {
+            if (this.port == null)
+            {
+                this.OpenPort();
+            }
+            else
+            {
+                if (this.port.IsOpen)
+                {
+                    this.port.Close();
+                    this.btnOpenPort.Text = "Open";
+                }
+                else
+                {
+                    this.port.Open();
+                    this.btnOpenPort.Text = "Close";
+
+                }
+            }
+        }
+
+        private void OpenPort()
+        {
             try
             {
                 var portName = this.cmbPorts.Text;
                 this.port = new PortFacade(portName);
                 this.port.DataReceived += port_DataReceived;
                 this.port.Open();
-                this.btnOpenPort.Enabled = false;
+                this.btnOpenPort.Text = "Close";
+                this.cmbPorts.Enabled = false;
             }
             catch (System.IO.IOException ex)
             {
@@ -68,6 +91,11 @@ namespace SerialToy
         private void btnSendData_Click(object sender, EventArgs e)
         {
             this.port.Send(this.txtDataToSend.Text);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.port.Close();
         }
     }
 }

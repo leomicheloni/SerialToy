@@ -12,6 +12,13 @@ namespace SerialToy
         System.IO.Ports.SerialPort port;
         public event DataReceivedEventHandler DataReceived;
 
+        public bool IsOpen {
+            get {
+                return this.port.IsOpen;
+            }
+        
+        }
+
         public PortFacade(string portName)
         {
             this.port = new System.IO.Ports.SerialPort(portName);
@@ -34,5 +41,12 @@ namespace SerialToy
 
             this.DataReceived.Invoke(this.port.ReadLine() + Environment.NewLine);
         }
+
+        internal void Close()
+        {
+            this.port.Close();
+        }
+
+
     }
 }
