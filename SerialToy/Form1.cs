@@ -12,6 +12,8 @@ namespace SerialToy
 {
     public partial class Form1 : Form
     {
+        PortFacade port;
+
         public Form1()
         {
             InitializeComponent();
@@ -20,6 +22,13 @@ namespace SerialToy
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnOpenPort_Click(object sender, EventArgs e)
+        {
+            var portName = this.txtPortName.Text;
+            this.port = new PortFacade(portName);
+            this.port.Open();
         }
     }
 }

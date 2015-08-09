@@ -62,6 +62,7 @@
             this.btnOpenPort.TabIndex = 2;
             this.btnOpenPort.Text = "Open port";
             this.btnOpenPort.UseVisualStyleBackColor = true;
+            this.btnOpenPort.Click += new System.EventHandler(this.btnOpenPort_Click);
             // 
             // btnSendData
             // 
