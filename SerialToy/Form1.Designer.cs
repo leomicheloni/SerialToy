@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPortName = new System.Windows.Forms.TextBox();
             this.btnOpenPort = new System.Windows.Forms.Button();
             this.btnSendData = new System.Windows.Forms.Button();
             this.txtDataToSend = new System.Windows.Forms.TextBox();
-            this.lstDataRecived = new System.Windows.Forms.ListBox();
+            this.cmbPorts = new System.Windows.Forms.ComboBox();
+            this.txtData = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -46,13 +46,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Port";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // txtPortName
-            // 
-            this.txtPortName.Location = new System.Drawing.Point(79, 37);
-            this.txtPortName.Name = "txtPortName";
-            this.txtPortName.Size = new System.Drawing.Size(100, 20);
-            this.txtPortName.TabIndex = 1;
             // 
             // btnOpenPort
             // 
@@ -72,6 +65,7 @@
             this.btnSendData.TabIndex = 3;
             this.btnSendData.Text = "Send";
             this.btnSendData.UseVisualStyleBackColor = true;
+            this.btnSendData.Click += new System.EventHandler(this.btnSendData_Click);
             // 
             // txtDataToSend
             // 
@@ -80,24 +74,33 @@
             this.txtDataToSend.Size = new System.Drawing.Size(167, 20);
             this.txtDataToSend.TabIndex = 4;
             // 
-            // lstDataRecived
+            // cmbPorts
             // 
-            this.lstDataRecived.FormattingEnabled = true;
-            this.lstDataRecived.Location = new System.Drawing.Point(46, 86);
-            this.lstDataRecived.Name = "lstDataRecived";
-            this.lstDataRecived.Size = new System.Drawing.Size(594, 186);
-            this.lstDataRecived.TabIndex = 5;
+            this.cmbPorts.FormattingEnabled = true;
+            this.cmbPorts.Location = new System.Drawing.Point(69, 36);
+            this.cmbPorts.Name = "cmbPorts";
+            this.cmbPorts.Size = new System.Drawing.Size(121, 21);
+            this.cmbPorts.TabIndex = 6;
+            // 
+            // txtData
+            // 
+            this.txtData.AcceptsReturn = true;
+            this.txtData.Location = new System.Drawing.Point(32, 76);
+            this.txtData.Multiline = true;
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(609, 331);
+            this.txtData.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 327);
-            this.Controls.Add(this.lstDataRecived);
+            this.ClientSize = new System.Drawing.Size(724, 431);
+            this.Controls.Add(this.txtData);
+            this.Controls.Add(this.cmbPorts);
             this.Controls.Add(this.txtDataToSend);
             this.Controls.Add(this.btnSendData);
             this.Controls.Add(this.btnOpenPort);
-            this.Controls.Add(this.txtPortName);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Serial Toy";
@@ -109,11 +112,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPortName;
         private System.Windows.Forms.Button btnOpenPort;
         private System.Windows.Forms.Button btnSendData;
         private System.Windows.Forms.TextBox txtDataToSend;
-        private System.Windows.Forms.ListBox lstDataRecived;
+        private System.Windows.Forms.ComboBox cmbPorts;
+        private System.Windows.Forms.TextBox txtData;
     }
 }
 

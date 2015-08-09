@@ -17,6 +17,8 @@ namespace SerialToy
         public Form1()
         {
             InitializeComponent();
+
+            this.cmbPorts.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -24,11 +26,48 @@ namespace SerialToy
 
         }
 
+        delegate void SetTextCallback(string text);
+
+        private void SetText(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.txtData.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetText);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.txtData.Text = text + this.txtData.Text;
+            }
+        }
         private void btnOpenPort_Click(object sender, EventArgs e)
         {
-            var portName = this.txtPortName.Text;
-            this.port = new PortFacade(portName);
-            this.port.Open();
+            try
+            {
+                var portName = this.cmbPorts.Text;
+                this.port = new PortFacade(portName);
+                this.port.DataReceived += port_DataReceived;
+                this.port.Open();
+                this.btnOpenPort.Enabled = false;
+            }
+            catch (System.IO.IOException ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        void port_DataReceived(string data)
+        {
+            SetText(data);
+        }
+
+        private void btnSendData_Click(object sender, EventArgs e)
+        {
+            this.port.Send(this.txtDataToSend.Text);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SerialToy
 {
-    public delegate void DataReceivedEventHandler(System.IO.Ports.SerialDataReceivedEventArgs e);
+    public delegate void DataReceivedEventHandler(string data);
     public class PortFacade
     {
         System.IO.Ports.SerialPort port;
@@ -20,7 +20,8 @@ namespace SerialToy
 
         public void Open()
         {
-            this.port.Open();            
+            this.port.Open();
+            
         }
 
         public void Send(string data)
@@ -28,14 +29,10 @@ namespace SerialToy
             this.port.Write(data);
         }
 
-        public string OnData()
-        {
-            return this.port.ReadLine();   
-        }
-
         void port_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            this.DataReceived.Invoke(e);
+
+            this.DataReceived.Invoke(this.port.ReadLine() + Environment.NewLine);
         }
     }
 }
