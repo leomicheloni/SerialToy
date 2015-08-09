@@ -33,6 +33,7 @@
             this.btnOpenPort = new System.Windows.Forms.Button();
             this.btnSendData = new System.Windows.Forms.Button();
             this.txtDataToSend = new System.Windows.Forms.TextBox();
+            this.lstDataRecived = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -78,11 +79,20 @@
             this.txtDataToSend.Size = new System.Drawing.Size(167, 20);
             this.txtDataToSend.TabIndex = 4;
             // 
+            // lstDataRecived
+            // 
+            this.lstDataRecived.FormattingEnabled = true;
+            this.lstDataRecived.Location = new System.Drawing.Point(46, 86);
+            this.lstDataRecived.Name = "lstDataRecived";
+            this.lstDataRecived.Size = new System.Drawing.Size(594, 186);
+            this.lstDataRecived.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 327);
+            this.ClientSize = new System.Drawing.Size(697, 327);
+            this.Controls.Add(this.lstDataRecived);
             this.Controls.Add(this.txtDataToSend);
             this.Controls.Add(this.btnSendData);
             this.Controls.Add(this.btnOpenPort);
@@ -102,6 +112,7 @@
         private System.Windows.Forms.Button btnOpenPort;
         private System.Windows.Forms.Button btnSendData;
         private System.Windows.Forms.TextBox txtDataToSend;
+        private System.Windows.Forms.ListBox lstDataRecived;
     }
 }
 
