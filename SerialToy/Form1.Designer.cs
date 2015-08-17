@@ -34,6 +34,7 @@
             this.txtDataToSend = new System.Windows.Forms.TextBox();
             this.cmbPorts = new System.Windows.Forms.ComboBox();
             this.txtData = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -59,7 +60,7 @@
             // 
             // btnSendData
             // 
-            this.btnSendData.Location = new System.Drawing.Point(566, 35);
+            this.btnSendData.Location = new System.Drawing.Point(474, 38);
             this.btnSendData.Name = "btnSendData";
             this.btnSendData.Size = new System.Drawing.Size(75, 23);
             this.btnSendData.TabIndex = 3;
@@ -69,7 +70,7 @@
             // 
             // txtDataToSend
             // 
-            this.txtDataToSend.Location = new System.Drawing.Point(393, 39);
+            this.txtDataToSend.Location = new System.Drawing.Point(301, 40);
             this.txtDataToSend.Name = "txtDataToSend";
             this.txtDataToSend.Size = new System.Drawing.Size(167, 20);
             this.txtDataToSend.TabIndex = 4;
@@ -88,14 +89,22 @@
             this.txtData.Location = new System.Drawing.Point(32, 76);
             this.txtData.Multiline = true;
             this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(609, 331);
+            this.txtData.Size = new System.Drawing.Size(517, 331);
             this.txtData.TabIndex = 7;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(32, 10);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(233, 20);
+            this.textBox1.TabIndex = 8;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 431);
+            this.ClientSize = new System.Drawing.Size(572, 431);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtData);
             this.Controls.Add(this.cmbPorts);
             this.Controls.Add(this.txtDataToSend);
@@ -118,6 +127,7 @@
         private System.Windows.Forms.TextBox txtDataToSend;
         private System.Windows.Forms.ComboBox cmbPorts;
         private System.Windows.Forms.TextBox txtData;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
